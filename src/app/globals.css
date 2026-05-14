@@ -1,0 +1,520 @@
+@import "tailwindcss";
+
+/* ==============================
+   SHADCN UI CSS VARIABLES
+   ============================== */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-be-vietnam);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+
+  /* Career RPG Palette */
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-exp: var(--exp);
+  --color-exp-foreground: var(--exp-foreground);
+  --color-hp: var(--hp);
+  --color-mana: var(--mana);
+  --color-neon-purple: #c084fc;
+  --color-neon-cyan: #22d3ee;
+  --color-neon-pink: #f472b6;
+  --color-neon-gold: #fbbf24;
+  --color-neon-lime: #a3e635;
+  --color-neon-orange: #fb923c;
+  --color-neon-red: #f87171;
+  --color-neon-blue: #60a5fa;
+
+  --color-rank-bronze: var(--rank-bronze);
+  --color-rank-silver: var(--rank-silver);
+  --color-rank-gold: var(--rank-gold);
+  --color-rank-platinum: var(--rank-platinum);
+  --color-rank-diamond: var(--rank-diamond);
+  --color-rank-master: var(--rank-master);
+  --color-rank-legend: var(--rank-legend);
+
+  --color-risk-safe: var(--risk-safe);
+  --color-risk-warning: var(--risk-warning);
+  --color-risk-danger: var(--risk-danger);
+
+  --color-difficulty-easy: var(--difficulty-easy);
+  --color-difficulty-medium: var(--difficulty-medium);
+  --color-difficulty-hard: var(--difficulty-hard);
+}
+
+/* ==============================
+   LIGHT THEME — Corporate Gaming
+   ============================== */
+
+:root {
+  --background: #f8f6ff;
+  --foreground: #1a1035;
+  --card: #ffffff;
+  --card-foreground: #1a1035;
+  --popover: #ffffff;
+  --popover-foreground: #1a1035;
+  --primary: #7c3aed;
+  --primary-foreground: #faf5ff;
+  --secondary: #ede9fe;
+  --secondary-foreground: #3b1f7a;
+  --muted: #f0ecff;
+  --muted-foreground: #6b5f80;
+  --accent: #e8e0ff;
+  --accent-foreground: #1a1035;
+  --destructive: #ef4444;
+  --destructive-foreground: #fff;
+  --border: #ddd6f0;
+  --input: #ddd6f0;
+  --ring: #7c3aed;
+
+  --chart-1: #7c3aed;
+  --chart-2: #06b6d4;
+  --chart-3: #f59e0b;
+  --chart-4: #ec4899;
+  --chart-5: #84cc16;
+
+  --sidebar: #f3f0ff;
+  --sidebar-foreground: #1a1035;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #faf5ff;
+  --sidebar-accent: #e8e0ff;
+  --sidebar-accent-foreground: #1a1035;
+  --sidebar-border: #ddd6f0;
+  --sidebar-ring: #7c3aed;
+
+  --radius: 0.625rem;
+
+  --gold: #f59e0b;
+  --gold-foreground: #fef3c7;
+  --exp: #10b981;
+  --exp-foreground: #d1fae5;
+  --hp: #ef4444;
+  --mana: #3b82f6;
+
+  --rank-bronze: #cd7f32;
+  --rank-silver: #c0c0c0;
+  --rank-gold: #ffd700;
+  --rank-platinum: #e5e4e2;
+  --rank-diamond: #b9f2ff;
+  --rank-master: #ff6b6b;
+  --rank-legend: #ffd700;
+
+  --risk-safe: #22c55e;
+  --risk-warning: #f59e0b;
+  --risk-danger: #ef4444;
+
+  --difficulty-easy: #22c55e;
+  --difficulty-medium: #f59e0b;
+  --difficulty-hard: #ef4444;
+}
+
+/* ==============================
+   DARK THEME — Premium Dark
+   ============================== */
+
+.dark {
+  --background: #080414;
+  --foreground: #ede4ff;
+  --card: #110a20;
+  --card-foreground: #ede4ff;
+  --popover: #110a20;
+  --popover-foreground: #ede4ff;
+  --primary: #a78bfa;
+  --primary-foreground: #080414;
+  --secondary: #1c1030;
+  --secondary-foreground: #d4c4f0;
+  --muted: #1c1030;
+  --muted-foreground: #8b7fa0;
+  --accent: #221540;
+  --accent-foreground: #ede4ff;
+  --destructive: #f87171;
+  --destructive-foreground: #080414;
+  --border: #2a1a48;
+  --input: #1c1030;
+  --ring: #a78bfa;
+
+  --chart-1: #a78bfa;
+  --chart-2: #22d3ee;
+  --chart-3: #fbbf24;
+  --chart-4: #f472b6;
+  --chart-5: #a3e635;
+
+  --sidebar: #0a0618;
+  --sidebar-foreground: #d4c4f0;
+  --sidebar-primary: #a78bfa;
+  --sidebar-primary-foreground: #080414;
+  --sidebar-accent: #1c1030;
+  --sidebar-accent-foreground: #ede4ff;
+  --sidebar-border: #2a1a48;
+  --sidebar-ring: #a78bfa;
+
+  --radius: 0.625rem;
+
+  --gold: #fbbf24;
+  --gold-foreground: #1a1025;
+  --exp: #34d399;
+  --exp-foreground: #064e3b;
+  --hp: #f87171;
+  --mana: #60a5fa;
+
+  --rank-bronze: #cd7f32;
+  --rank-silver: #d1d5db;
+  --rank-gold: #fbbf24;
+  --rank-platinum: #e5e7eb;
+  --rank-diamond: #67e8f9;
+  --rank-master: #fb7185;
+  --rank-legend: #fbbf24;
+
+  --risk-safe: #4ade80;
+  --risk-warning: #fbbf24;
+  --risk-danger: #f87171;
+
+  --difficulty-easy: #4ade80;
+  --difficulty-medium: #fbbf24;
+  --difficulty-hard: #f87171;
+}
+
+/* ==============================
+   GLOBAL STYLES
+   ============================== */
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ==============================
+   NEON GLOW EFFECTS
+   ============================== */
+
+.glow-purple {
+  box-shadow:
+    0 0 10px #a78bfa40,
+    0 0 30px #a78bfa20,
+    inset 0 0 10px #a78bfa10;
+}
+
+.glow-gold {
+  box-shadow:
+    0 0 10px #fbbf2440,
+    0 0 30px #fbbf2420,
+    inset 0 0 10px #fbbf2410;
+}
+
+.glow-green {
+  box-shadow:
+    0 0 10px #34d39940,
+    0 0 30px #34d39920,
+    inset 0 0 10px #34d39910;
+}
+
+.glow-cyan {
+  box-shadow:
+    0 0 10px #22d3ee40,
+    0 0 30px #22d3ee20,
+    inset 0 0 10px #22d3ee10;
+}
+
+.glow-pink {
+  box-shadow:
+    0 0 10px #f472b640,
+    0 0 30px #f472b620,
+    inset 0 0 10px #f472b610;
+}
+
+.glow-red {
+  box-shadow:
+    0 0 10px #f8717140,
+    0 0 30px #f8717120,
+    inset 0 0 10px #f8717110;
+}
+
+/* ==============================
+   GLASS MORPHISM
+   ============================== */
+
+.glass {
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+}
+
+.glass-strong {
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+/* ==============================
+   TEXT GRADIENTS
+   ============================== */
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #c084fc, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #34d399, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-pink {
+  background: linear-gradient(135deg, #f472b6, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(135deg, #f87171, #fb923c, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, #22d3ee, #a3e635);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-career {
+  background: linear-gradient(135deg, #7c3aed, #06b6d4, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 3s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px #a78bfa30;
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 20px #a78bfa50, 0 0 40px #a78bfa20;
+    filter: brightness(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes slide-up-spring {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up-spring 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes risk-pulse-green {
+  0%, 100% { box-shadow: 0 0 8px #22c55e30; }
+  50% { box-shadow: 0 0 16px #22c55e50; }
+}
+
+@keyframes risk-pulse-yellow {
+  0%, 100% { box-shadow: 0 0 8px #f59e0b30; }
+  50% { box-shadow: 0 0 16px #f59e0b50; }
+}
+
+@keyframes risk-pulse-red {
+  0%, 100% { box-shadow: 0 0 8px #ef444430; }
+  50% { box-shadow: 0 0 20px #ef444460, 0 0 40px #ef444420; }
+}
+
+.animate-risk-safe {
+  animation: risk-pulse-green 2s ease-in-out infinite;
+}
+
+.animate-risk-warning {
+  animation: risk-pulse-yellow 1.5s ease-in-out infinite;
+}
+
+.animate-risk-danger {
+  animation: risk-pulse-red 1s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count-up {
+  animation: count-up 0.5s ease-out both;
+}
+
+/* Promotion celebration */
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1) rotate(-3deg); }
+  50% { transform: scale(1.2) rotate(3deg); }
+  75% { transform: scale(1.1) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.animate-celebrate {
+  animation: celebrate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Demotion warning shake */
+@keyframes warning-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 50%, 90% { transform: translateX(-3px); }
+  30%, 70% { transform: translateX(3px); }
+}
+
+.animate-warning-shake {
+  animation: warning-shake 0.5s ease-in-out;
+}
