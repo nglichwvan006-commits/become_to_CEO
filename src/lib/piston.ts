@@ -1,5 +1,7 @@
 const PISTON_API_URL =
-  process.env.NEXT_PUBLIC_PISTON_API_URL || "https://emkc.org/api/v2/piston";
+  process.env.PISTON_API_URL ||
+  process.env.NEXT_PUBLIC_PISTON_API_URL ||
+  "https://emkc.org/api/v2/piston";
 
 export interface PistonRuntime {
   language: string;
@@ -82,6 +84,13 @@ export async function executeCode(
 
     if (!res.ok) {
       const text = await res.text();
+
+      if (res.status === 401 && text.toLowerCase().includes("whitelist")) {
+        throw new Error(
+          "Piston public API is restricted. Configure a private PISTON_API_URL for production code execution."
+        );
+      }
+
       throw new Error(`Piston API error (${res.status}): ${text}`);
     }
 

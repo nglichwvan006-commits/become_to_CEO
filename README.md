@@ -21,6 +21,21 @@ supabase/migrations/005_production_seed_data.sql
 The final seed file inserts/upserts the real task catalog, career levels,
 achievements, pets, season data and promotion challenges.
 
+## Code execution service
+
+The public Piston endpoint can be restricted, so production deployments should
+use a private Piston instance.
+
+Set this environment variable on Vercel:
+
+```env
+PISTON_API_URL=https://your-private-piston.example.com/api/v2
+```
+
+For the public legacy endpoint the base URL used to be
+`https://emkc.org/api/v2/piston`, but it can return whitelist errors and should
+not be relied on for production.
+
 ## Getting Started
 
 First, run the development server:
