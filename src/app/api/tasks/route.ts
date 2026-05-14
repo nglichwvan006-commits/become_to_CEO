@@ -73,12 +73,14 @@ export async function GET(request: Request) {
 
     const { data, error } = await query.returns<TaskListRow[]>();
 
-    if (!error && data) {
-      return NextResponse.json({
-        source: "supabase",
-        tasks: data.map(toTaskListItem),
-      });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    return NextResponse.json({
+      source: "supabase",
+      tasks: (data ?? []).map(toTaskListItem),
+    });
   }
 
   let tasks = MOCK_TASKS;

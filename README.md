@@ -1,5 +1,26 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Supabase production data
+
+Run migrations in order before deploying production:
+
+```bash
+supabase db push
+```
+
+If you use the Supabase SQL editor instead of the CLI, run:
+
+```text
+supabase/migrations/001_schema.sql
+supabase/migrations/002_seed_data.sql
+supabase/migrations/003_admin_policies.sql
+supabase/migrations/004_admin_audit_logs.sql
+supabase/migrations/005_production_seed_data.sql
+```
+
+The final seed file inserts/upserts the real task catalog, career levels,
+achievements, pets, season data and promotion challenges.
+
 ## Getting Started
 
 First, run the development server:

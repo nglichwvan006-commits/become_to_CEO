@@ -20,13 +20,16 @@ function isHiddenTests(value: Json): value is { input: string; output: string }[
   );
 }
 
-function isStarterCode(value: Json): value is Record<string, string> {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    !Array.isArray(value) &&
-    Object.values(value).every((item) => typeof item === "string")
-  );
+function toStarterCode(value: Json): Record<string, string> {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(value).filter(
+      ([key, item]) => key !== "adminMeta" && typeof item === "string"
+    )
+  ) as Record<string, string>;
 }
 
 function toMockTask(row: TaskDetailRow): MockTask {
@@ -45,7 +48,7 @@ function toMockTask(row: TaskDetailRow): MockTask {
     sampleInput: row.sample_input,
     sampleOutput: row.sample_output,
     hiddenTests: isHiddenTests(row.hidden_tests) ? row.hidden_tests : [],
-    starterCode: isStarterCode(row.starter_code) ? row.starter_code : {},
+    starterCode: toStarterCode(row.starter_code),
     expReward: row.exp_reward,
     salaryReward: row.salary_reward,
     reputationReward: row.reputation_reward,
@@ -70,9 +73,19 @@ export async function GET(
       .single()
       .returns<TaskDetailRow>();
 
-    if (!error && data) {
+    if (error) {
+      if (error.code === "PGRST116") {
+        return NextResponse.json({ error: "Task not found" }, { status: 404 });
+      }
+
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    if (data) {
       return NextResponse.json({ source: "supabase", task: toMockTask(data) });
     }
+
+    return NextResponse.json({ error: "Task not found" }, { status: 404 });
   }
 
   const task = getTaskBySlug(slug);

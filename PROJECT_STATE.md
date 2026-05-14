@@ -55,6 +55,7 @@ Du an da hoan thanh khung san pham Career Quest RPG voi kien truc Next.js 16, Ta
 - **Admin Writes**: Tao task, sua task, publish/draft/archive, duplicate, toggle user role va update user risk/status.
 - **RLS Policies**: `003_admin_policies.sql` them `public.is_admin()` va policies cho tasks, profiles, user_careers, submissions.
 - **Audit Logs**: `004_admin_audit_logs.sql` them bang `admin_audit_logs`; admin task/user mutations ghi audit log khi chay Supabase live.
+- **Production Seed Data**: `005_production_seed_data.sql` upsert career levels, 10 task that, achievements, pets, season va promotion challenges de Supabase live khong bi trong data.
 - **Auth Callback**: `/auth/callback` exchange code lay session that va redirect ve dashboard/next path, fallback demo khi chua co Supabase.
 - **Proxy Auth**: `src/proxy.ts` giu auth guard cho protected routes khi Supabase da cau hinh.
 
@@ -70,6 +71,7 @@ Du an da hoan thanh khung san pham Career Quest RPG voi kien truc Next.js 16, Ta
 ### 8. Ky thuat va Verification
 
 - **Next 16 Convention**: Da migrate `src/middleware.ts` sang `src/proxy.ts` theo deprecation notice.
+- **Production Data Behavior**: Khi Supabase da cau hinh, `/api/tasks` va `/api/tasks/[slug]` tra loi Supabase/error that thay vi am tham fallback sang mock data.
 - **Lint**: `npm.cmd run lint` thanh cong, zero warnings.
 - **Build**: `npm.cmd run build` thanh cong, zero TypeScript errors.
 - **Ghi chu build**: Build can network access de `next/font` tai Google Fonts.
