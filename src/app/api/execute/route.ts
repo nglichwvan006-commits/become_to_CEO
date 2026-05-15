@@ -3,8 +3,10 @@ import {
   executeCode,
   compareOutputs,
   normalizeOutput,
-  getSupportedLanguages,
-} from "@/lib/piston";
+} from "@/lib/local-executor";
+import { getSupportedLanguages } from "@/lib/code-languages";
+
+export const runtime = "nodejs";
 
 const rateLimitMap = new Map<string, number[]>();
 const RATE_LIMIT = 10;
@@ -66,7 +68,12 @@ export async function POST(request: Request) {
     const exitCode = result.run?.code ?? 0;
 
     let status: string = "success";
-    if (compileError) {
+    if (
+      result.compile?.signal === "TIMEOUT" ||
+      result.run?.signal === "TIMEOUT"
+    ) {
+      status = "time_limit";
+    } else if (compileError) {
       status = "compilation_error";
     } else if (exitCode !== 0 || stderr) {
       status = "runtime_error";

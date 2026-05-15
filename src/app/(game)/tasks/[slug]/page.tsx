@@ -10,7 +10,7 @@ import { OutputPanel } from "@/components/editor/output-panel";
 import { ProblemPanel } from "@/components/editor/problem-panel";
 import { useGameStore } from "@/stores/game-store";
 import { getTaskBySlug } from "@/constants/mock-tasks";
-import { getSupportedLanguages } from "@/lib/piston";
+import { getSupportedLanguages } from "@/lib/code-languages";
 import {
   Play,
   Send,

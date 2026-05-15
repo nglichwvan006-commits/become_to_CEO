@@ -73,7 +73,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "a, b = map(int, input().split())\nprint(a + b)",
-      javascript: "const [a, b] = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split(' ').map(Number);\nconsole.log(a + b);",
+      javascript: "const [a, b] = require('fs').readFileSync(0, 'utf8').trim().split(' ').map(Number);\nconsole.log(a + b);",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    long long a, b;\n    cin >> a >> b;\n    cout << a + b << endl;\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long a = sc.nextLong();\n        long b = sc.nextLong();\n        System.out.println(a + b);\n    }\n}',
     },
@@ -106,7 +106,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\n# Viết code kiểm tra chẵn lẻ",
-      javascript: "const n = parseInt(require('fs').readFileSync('/dev/stdin', 'utf8').trim());\n// Viết code kiểm tra chẵn lẻ",
+      javascript: "const n = parseInt(require('fs').readFileSync(0, 'utf8').trim());\n// Viết code kiểm tra chẵn lẻ",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    // Viết code kiểm tra chẵn lẻ\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Viết code kiểm tra chẵn lẻ\n    }\n}',
     },
@@ -137,7 +137,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\nfor i in range(1, n + 1):\n    # Viết logic FizzBuzz",
-      javascript: "const n = parseInt(require('fs').readFileSync('/dev/stdin', 'utf8').trim());\nfor (let i = 1; i <= n; i++) {\n  // Viết logic FizzBuzz\n}",
+      javascript: "const n = parseInt(require('fs').readFileSync(0, 'utf8').trim());\nfor (let i = 1; i <= n; i++) {\n  // Viết logic FizzBuzz\n}",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 1; i <= n; i++) {\n        // Viết logic FizzBuzz\n    }\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        for (int i = 1; i <= n; i++) {\n            // Viết logic FizzBuzz\n        }\n    }\n}',
     },
@@ -169,7 +169,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "s = input()\n# Đảo ngược chuỗi s",
-      javascript: "const s = require('fs').readFileSync('/dev/stdin', 'utf8').trim();\n// Đảo ngược chuỗi s",
+      javascript: "const s = require('fs').readFileSync(0, 'utf8').trim();\n// Đảo ngược chuỗi s",
       cpp: '#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    // Đảo ngược chuỗi s\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.next();\n        // Đảo ngược chuỗi s\n    }\n}',
     },
@@ -201,7 +201,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\ntotal = 0\ni = 1\nwhile i <= n:\n    total += i\n    # Fix bug ở đây\nprint(total)",
-      javascript: "const n = parseInt(require('fs').readFileSync('/dev/stdin', 'utf8').trim());\nlet total = 0;\nlet i = 1;\nwhile (i <= n) {\n  total += i;\n  // Fix bug ở đây\n}\nconsole.log(total);",
+      javascript: "const n = parseInt(require('fs').readFileSync(0, 'utf8').trim());\nlet total = 0;\nlet i = 1;\nwhile (i <= n) {\n  total += i;\n  // Fix bug ở đây\n}\nconsole.log(total);",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    long long total = 0;\n    int i = 1;\n    while (i <= n) {\n        total += i;\n        // Fix bug ở đây\n    }\n    cout << total << endl;\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long total = 0;\n        int i = 1;\n        while (i <= n) {\n            total += i;\n            // Fix bug ở đây\n        }\n        System.out.println(total);\n    }\n}',
     },
@@ -233,7 +233,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\narr = list(map(int, input().split()))\n# Tìm max",
-      javascript: "const lines = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\\n');\nconst n = parseInt(lines[0]);\nconst arr = lines[1].split(' ').map(Number);\n// Tìm max",
+      javascript: "const lines = require('fs').readFileSync(0, 'utf8').trim().split('\\n');\nconst n = parseInt(lines[0]);\nconst arr = lines[1].split(' ').map(Number);\n// Tìm max",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    // Đọc mảng và tìm max\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Đọc mảng và tìm max\n    }\n}',
     },
@@ -265,7 +265,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\narr = list(map(int, input().split()))\n# Sắp xếp mảng",
-      javascript: "const lines = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\\n');\nconst n = parseInt(lines[0]);\nconst arr = lines[1].split(' ').map(Number);\n// Sắp xếp mảng",
+      javascript: "const lines = require('fs').readFileSync(0, 'utf8').trim().split('\\n');\nconst n = parseInt(lines[0]);\nconst arr = lines[1].split(' ').map(Number);\n// Sắp xếp mảng",
       cpp: '#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    // Đọc, sắp xếp, in\n    return 0;\n}',
       java: 'import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Đọc, sắp xếp, in\n    }\n}',
     },
@@ -298,7 +298,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: "n = int(input())\n# Tính Fibonacci thứ n",
-      javascript: "const n = parseInt(require('fs').readFileSync('/dev/stdin', 'utf8').trim());\n// Tính Fibonacci thứ n",
+      javascript: "const n = parseInt(require('fs').readFileSync(0, 'utf8').trim());\n// Tính Fibonacci thứ n",
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    // Tính Fibonacci thứ n\n    return 0;\n}',
       java: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Tính Fibonacci thứ n\n    }\n}',
     },
@@ -329,7 +329,7 @@ export const MOCK_TASKS: MockTask[] = [
     ],
     starterCode: {
       python: 'tables = ["products", "orders", "customers", "categories", "reviews",\n         "payments", "shipping", "inventory", "coupons", "wishlists"]\nn = int(input())\n# In ra n bảng đầu tiên (sorted)',
-      javascript: 'const tables = ["products","orders","customers","categories","reviews",\n  "payments","shipping","inventory","coupons","wishlists"];\nconst n = parseInt(require("fs").readFileSync("/dev/stdin","utf8").trim());\n// In ra n bảng đầu tiên (sorted)',
+      javascript: 'const tables = ["products","orders","customers","categories","reviews",\n  "payments","shipping","inventory","coupons","wishlists"];\nconst n = parseInt(require("fs").readFileSync(0,"utf8").trim());\n// In ra n bảng đầu tiên (sorted)',
       cpp: '#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    // Tạo danh sách bảng và in\n    return 0;\n}',
       java: 'import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Tạo danh sách bảng và in\n    }\n}',
     },

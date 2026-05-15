@@ -26,7 +26,7 @@ Du an da hoan thanh khung san pham Career Quest RPG voi kien truc Next.js 16, Ta
 ### 3. Database, API va Coding Editor
 
 - **SQL Migrations**: `001_schema.sql`, `002_seed_data.sql` voi schema, seed data, RLS policies va trigger auto-create.
-- **Piston API**: Code execution service cho Python, JavaScript, C++, Java qua `/api/execute`.
+- **Local Code Executor**: Code execution service cho Python, JavaScript, C/C++, Java qua `/api/execute`, khong can external judge API/env.
 - **Task API**: `/api/tasks`, `/api/tasks/[slug]` dung mock tasks data.
 - **Monaco Editor**: Trang `/tasks/[slug]` co problem panel, editor, output/tests/history.
 - **Submit Reward**: Submit pass hidden tests se cong EXP, salary, reputation, quest va achievements.

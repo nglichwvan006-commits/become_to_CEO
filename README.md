@@ -23,18 +23,19 @@ achievements, pets, season data and promotion challenges.
 
 ## Code execution service
 
-The public Piston endpoint can be restricted, so production deployments should
-use a private Piston instance.
+Code execution runs through the local `/api/execute` route. It does not require
+an external judge API or a code-execution environment variable.
 
-Set this environment variable on Vercel:
+The server uses the machine's local runtimes:
 
-```env
-PISTON_API_URL=https://your-private-piston.example.com/api/v2
-```
+- JavaScript: the same Node.js runtime used by Next.js
+- Python: `py -3` or `python` on Windows, `python3` or `python` elsewhere
+- C/C++: `gcc` / `g++`
+- Java: `javac` and `java`
 
-For the public legacy endpoint the base URL used to be
-`https://emkc.org/api/v2/piston`, but it can return whitelist errors and should
-not be relied on for production.
+Install the runtime/compiler for the language you want to support on the
+deployment machine. User code is executed in a temporary directory with a
+server-side timeout.
 
 ## Getting Started
 
